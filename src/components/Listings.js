@@ -10,7 +10,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const Listings = () => {
   const dispatch = useDispatch();
 
-  const listingsData = useSelector((state) => state.listings); // Rename the variable to avoid conflict
+  const listingsData = useSelector((state) => state.listings);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   const handleRemoveListing = (idx) => {
@@ -34,7 +34,7 @@ const Listings = () => {
               See More Details
             </Link>
           </CardActions>
-          {isLoggedIn && ( // Only render the delete icon if the user is logged in
+          {isLoggedIn && (
             <DeleteIcon
               className="icon text-red"
               onClick={() => handleRemoveListing(idx)}

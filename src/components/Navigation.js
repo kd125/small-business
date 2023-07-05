@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Navigation = () => {
   const navigate = useNavigate();
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn); // Update the state path to "state.user.isLoggedIn"
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const dispatch = useDispatch();
 
   const handleLogin = () => {
