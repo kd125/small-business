@@ -26,7 +26,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    document.cookie = "loggedIn=true; max-age=60*1000";
+    document.cookie = `loggedIn=true; max-age=${60 * 1000}`;
 
     dispatch(login(state.username));
     navigate("/");

@@ -11,8 +11,8 @@ const Navigation = () => {
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    dispatch({ type: "LOGIN" });
-    navigate("/Login");
+    document.cookie = "loggedIn=true; max-age=60*1000";
+    navigate("/");
   };
 
   const handleLogout = () => {
@@ -46,7 +46,7 @@ const Navigation = () => {
           )}
           {!isLoggedIn && (
             <li className="nav-list-item">
-              <button onClick={handleLogin}>Login</button>
+              <Link to="/Login">Login</Link>
             </li>
           )}
         </ul>

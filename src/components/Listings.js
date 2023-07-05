@@ -10,14 +10,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const Listings = () => {
   const dispatch = useDispatch();
 
-  const listings = useSelector((state) => state.listings);
+  const listingsData = useSelector((state) => state.listings); // Rename the variable to avoid conflict
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
   const handleRemoveListing = (idx) => {
     dispatch(removeListing(idx));
   };
 
   return (
     <div className="card-container">
-      {listings.map((listing, idx) => (
+      {listingsData.map((listing, idx) => (
         <Card key={idx} className="card">
           <CardContent className="text-gray">
             <span>{listing.Business_Name}</span>
@@ -32,10 +34,12 @@ const Listings = () => {
               See More Details
             </Link>
           </CardActions>
-          <DeleteIcon
-            className="icon text-red"
-            onClick={() => handleRemoveListing(idx)}
-          />
+          {isLoggedIn && ( // Only render the delete icon if the user is logged in
+            <DeleteIcon
+              className="icon text-red"
+              onClick={() => handleRemoveListing(idx)}
+            />
+          )}
           <Divider />
         </Card>
       ))}
